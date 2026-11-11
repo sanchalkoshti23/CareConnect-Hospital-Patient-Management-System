@@ -21,11 +21,14 @@ PostgreSQL, JDBC, Maven, and FlatLaf.
 
 - Dashboard statistics read from PostgreSQL: total patients, male patients,
   female patients, and registrations today.
+- A database-derived gender distribution overview and clear loading, empty, and
+  unavailable-data states.
 - A recent registrations table populated from the database.
 - New patient registration with required-field validation.
 - Patient records table with sorting and name/ID search.
 - Patient editing, confirmed deletion, and refresh.
-- Dashboard, registration, patient records, About, and Exit navigation.
+- Dashboard, registration, patient records, search, About/Help, and Exit
+  navigation.
 - Friendly database error messages; the app does not show fake statistics when
   PostgreSQL is unavailable.
 - No seeded or demo patient records.
@@ -63,6 +66,7 @@ careconnect/
 │   │   ├── gui/
 │   │   │   ├── CareConnectFrame.java
 │   │   │   └── components/
+│   │   │       ├── CareConnectIcon.java
 │   │   │       ├── PatientFormPanel.java
 │   │   │       ├── PatientTableModel.java
 │   │   │       └── SectionPanel.java
@@ -140,9 +144,12 @@ the Swing interface.
 - **`Main`** — configures FlatLaf and UI defaults, wires the service and DAO, and
   launches the maximized desktop window.
 - **`gui/CareConnectFrame`** — the dashboard, application header/sidebar,
-  registration and records pages, About page, dialogs, and navigation.
+  database-driven overview, registration and records pages, About page, dialogs,
+  vector iconography, and navigation.
 - **`gui/components/PatientFormPanel`** — reusable patient entry/edit form.
 - **`gui/components/PatientTableModel`** — table columns and patient-row values.
+- **`gui/components/CareConnectIcon`** — crisp, scalable vector icons drawn
+  without adding an external icon dependency.
 - **`model/Patient`** — patient fields, including the generated ID and
   registration timestamp.
 - **`model/DashboardStats`** — statistics and recent-patient results.

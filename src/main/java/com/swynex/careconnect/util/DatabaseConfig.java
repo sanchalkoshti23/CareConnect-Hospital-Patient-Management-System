@@ -20,11 +20,20 @@ public final class DatabaseConfig {
     }
 
     public static DatabaseConfig fromEnvironment() {
-        String url = System.getenv().getOrDefault("CARECONNECT_DB_URL", DEFAULT_URL);
-        String username = System.getenv("CARECONNECT_DB_USERNAME");
-        String password = System.getenv("CARECONNECT_DB_PASSWORD");
-        return new DatabaseConfig(url, username, password);
-    }
+    String url = System.getenv().getOrDefault("CARECONNECT_DB_URL", DEFAULT_URL);
+    String username = System.getenv("CARECONNECT_DB_USERNAME");
+    String password = System.getenv("CARECONNECT_DB_PASSWORD");
+
+    System.out.println("===== DATABASE CONFIGURATION CHECK =====");
+    System.out.println("Database URL configured: " + !url.isBlank());
+    System.out.println("Username configured: "
+            + (username != null && !username.isBlank()));
+    System.out.println("Password configured: "
+            + (password != null && !password.isBlank()));
+    System.out.println("========================================");
+
+    return new DatabaseConfig(url, username, password);
+}
 
     public Connection getConnection() throws SQLException {
         if (username == null || username.isBlank()
