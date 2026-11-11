@@ -1,0 +1,30 @@
+target/
+*.class
+*.log
+
+# Local database credentials and environment files
+.env
+.env.*
+!.env.example
+*.local.*
+*.secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local database exports and backups (may contain patient data)
+*.dump
+*.backup
+*.sql.gz
+*.bak
+
+# IDE and operating system files
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
